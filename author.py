@@ -9,13 +9,8 @@ sentence_tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
 word_tokenizer = nltk.tokenize.RegexpTokenizer(r'\w+')
 
 # load data
-data_folder = r"C:\Users\Neil\Dropbox\ml article"
-files = sorted(glob.glob(os.path.join(data_folder, "chapter*.txt")))
-chapters = []
-for fn in files:
-    with open(fn) as f:
-        chapters.append(f.read().replace('\n', ' '))
-all_text = ' '.join(chapters)
+## define chapters
+## all_text = ' '.join(chapters)
 
 def PredictAuthors(fvs):
     """
@@ -110,5 +105,3 @@ if __name__ == '__main__':
         # in our case, we know the author of chapter 10, so set it to
         if results[9] == 0: results = 1 - results
         print(' '.join([str(a) for a in results]))
-
-
